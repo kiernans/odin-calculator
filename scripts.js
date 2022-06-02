@@ -18,8 +18,8 @@ const container = document.querySelector('.container');
 
 const clear = document.querySelector('.clear');
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
+const nButtons = document.querySelectorAll('.number');
+nButtons.forEach((button) => {
     button.addEventListener('click', () => {           
         x += button.textContent;
         console.log(x);
