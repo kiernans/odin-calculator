@@ -1,3 +1,13 @@
+let x = '';
+let y = '';
+let operator = '';
+let stack = [];
+
+const container = document.querySelector('.container');
+const screen = document.querySelector('.screen');
+const clear = document.querySelector('.clear');
+
+
 const sum = (x,y) => x+y;
 const subtract = (x,y) => x-y;
 const multiply = (x,y) => x*y;
@@ -10,23 +20,44 @@ const operate = (operator, x, y) => {
     if(operator === '/') return divide(x,y);
 }
 
-let x = '';
-let y = '';
-let operator = '';
+const setScreen = (content) => {           
+    screen.textContent = content;
+};
 
-const container = document.querySelector('.container');
+const getNumbers = (button) => x += button.textContent;
 
-const clear = document.querySelector('.clear');
+const getOperator = (button) => operator = button.textContent;
 
-const nButtons = document.querySelectorAll('.number');
-nButtons.forEach((button) => {
-    button.addEventListener('click', () => {           
-        x += button.textContent;
-        console.log(x);
+const resetVariables = () => {
+    x = '';
+    y = '';
+    operator = '';
+    screen.textContent = '';
+};
+
+
+const addEventListeners = () => {
+    const numbers = document.querySelectorAll('.number');
+    numbers.forEach((button) => {
+        button.addEventListener('click', () => {
+            getNumbers(button);
+            setScreen(x);
+        });
     });
-});
 
-const screen = document.querySelector('.screen');
-screen.textContent = `123456`;
+    const operators = document.querySelectorAll('.operator');
+    operators.forEach((button) => {
+        button.addEventListener('click', () => {
+            getOperator(button);
+            setScreen(operator);
+        })
+    });
+
+    clear.addEventListener('click', () => resetVariables());
+}
+
+
 container.insertBefore(screen,clear);
+
+addEventListeners();
 

@@ -46,6 +46,7 @@ button {
     height: 625px;
     align-items: stretch;
     background-color: #7DB46CFF;
+    border-radius: 60px;
 }
 
 .screen {
