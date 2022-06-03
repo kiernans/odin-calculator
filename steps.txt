@@ -1,0 +1,8 @@
+Get first number
+Put on screen
+Get operator
+Put on screen
+Get second number
+Put on screen
+Operate
+Put results on screen
